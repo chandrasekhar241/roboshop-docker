@@ -13,15 +13,15 @@ services:
     - mongodb
   frontend:
     build: ./frontend
-    image: chandu4234/frontend
+    image: chandu4234/frontend:v1
     container_name: frontend
     ports:
-    - "80:80"
+      - "80:80"
     depends_on:
-    - catalogue
+      - catalogue
     user:
       build: ./user
-      image: chandu4234/user
+      image: chandu4234/user:v1
       container_name: user
       environment:
         MONGO: true
