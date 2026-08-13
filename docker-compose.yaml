@@ -19,6 +19,7 @@ services:
       - "80:80"
     depends_on:
       - catalogue
+      - user
   user:
     build: ./user
     image: chandu4234/user:v1
