@@ -20,6 +20,7 @@ services:
     depends_on:
       - catalogue
       - user
+      - cart
   user:
     build: ./user
     image: chandu4234/user:v1
