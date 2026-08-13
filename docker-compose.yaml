@@ -44,6 +44,16 @@ services:
     depends_on:
     - redis
     - catalogue
+  shipping:
+    build: ./shipping
+    image: chandu4234/shipping:v1
+    container_name: shipping
+    environment:
+      CART_ENDPOINT: "cart:8080"
+      DB_HOST: mysql
+    depends_on:
+    - mysql
+    - cart
   mysql:
     build: ./mysql
     image: chandu4234/mysql:v1
@@ -51,7 +61,7 @@ services:
     command: --innodb-lock_wait_timeout=120
     environment:
       MYSQL_ROOT_PASSWORD: "RoboShop@1"
-
+  
   redis:
     image: redis:7
     container_name: redis
