@@ -30,9 +30,9 @@ services:
     depends_on:
     - redis
     - mongodb
-    redis:
-      image: redis:7
-      container_name: redis
+  redis:
+    image: redis:7
+    container_name: redis
 networks:
   default:
     name: roboshop
