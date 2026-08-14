@@ -3,19 +3,19 @@ name : roboshop
 services:
   mongodb:
     build: ./mongodb
-    image: chandu4234/mongodb:v1
+    image: chandu4234/mongodb:4.0.0
     container_name: mongodb
     volumes:
       - mongodb:/data/db
   catalogue:
     build: ./catalogue
-    image: chandu4234/catalogue:v1
+    image: chandu4234/catalogue:4.0.0
     container_name: catalogue
     depends_on:
     - mongodb
   frontend:
     build: ./frontend
-    image: chandu4234/frontend:v1
+    image: chandu4234/frontend:4.0.0
     container_name: frontend
     ports:
       - "80:80"
@@ -25,7 +25,7 @@ services:
       - cart
   user:
     build: ./user
-    image: chandu4234/user:v1
+    image: chandu4234/user:4.0.0
     container_name: user
     environment:
       MONGO: true
@@ -37,7 +37,7 @@ services:
 
   cart:
     build: ./cart
-    image: chandu4234/cart:v1
+    image: chandu4234/cart:4.0.0
     container_name: cart
     environment:
       REDIS_HOST: redis
@@ -48,7 +48,7 @@ services:
     - catalogue
   shipping:
     build: ./shipping
-    image: chandu4234/shipping:v1
+    image: chandu4234/shipping:4.0.0
     container_name: shipping
     environment:
       CART_ENDPOINT: "cart:8080"
@@ -58,7 +58,7 @@ services:
     - cart
   payment:
     build: ./payment
-    image: chandu4234/payment:v1
+    image: chandu4234/payment:4.0.0
     container_name: payment
     environment:
       CART_HOST: "cart"
@@ -75,7 +75,7 @@ services:
   
   mysql:
     build: ./mysql
-    image: chandu4234/mysql:v1
+    image: chandu4234/mysql:4.0.0
     container_name: mysql
     command: --innodb-lock_wait_timeout=120
     environment:
