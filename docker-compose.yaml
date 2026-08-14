@@ -5,6 +5,8 @@ services:
     build: ./mongodb
     image: chandu4234/mongodb:v1
     container_name: mongodb
+    volumes:
+      - mongodb:/data/db
   catalogue:
     build: ./catalogue
     image: chandu4234/catalogue:v1
@@ -78,18 +80,30 @@ services:
     command: --innodb-lock_wait_timeout=120
     environment:
       MYSQL_ROOT_PASSWORD: "RoboShop@1"
+    volumes:
+      - mysql:/var/lib/mysql
   
   redis:
     image: redis:7
     container_name: redis
+    volumes:
+      - redis:/data
   rabbitmq:
     image: rabbitmq:3
     container_name: rabbitmq
     environment:
       RABBITMQ_DEFAULT_USER: roboshop
       RABBITMQ_DEFAULT_PASS: roboshop123
+    volumes:
+      - rabbitmq:/var/lib/rabbitmq
 networks:
   default:
     name: roboshop
     driver: bridge
     external: false
+volumes:
+  # docker volume create mongodb 
+  mongodb
+  redis 
+  mysql 
+  rabbitmq 
