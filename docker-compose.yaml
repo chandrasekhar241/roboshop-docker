@@ -102,7 +102,6 @@ networks:
     driver: bridge
     external: false
 volumes:
-  # docker volume create mongodb 
   mongodb
   redis 
   mysql 
