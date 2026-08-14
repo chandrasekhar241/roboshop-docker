@@ -23,5 +23,8 @@ EXPOSE 8080
 
 ENV MONGO_URL="mongodb://mongodb:27017/catalogue" \
     MONGO="true"
+RUN addgroup -S roboshop && adduser -S -G roboshop roboshop && \
+    chown -R roboshop:roboshop /app
+USER roboshop
 
 CMD ["node", "server.js"]
