@@ -101,8 +101,9 @@ networks:
     name: roboshop
     driver: bridge
     external: false
+
 volumes:
-  mongodb
-  redis 
-  mysql 
-  rabbitmq 
+  mongodb:
+  redis:
+  mysql:
+  rabbitmq:
