@@ -75,7 +75,7 @@ services:
   
   mysql:
     build: ./mysql
-    image: chandu4234/mysql:4.0.0
+    image: chandu4234/mysql:4.0.1
     container_name: mysql
     command: --innodb-lock_wait_timeout=120
     environment:
